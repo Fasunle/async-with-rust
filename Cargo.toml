@@ -1,0 +1,9 @@
+[package]
+name = "rust-basics"
+version = "0.1.0"
+edition = "2021"
+authors = ["Kehinde Fasunle <kfasunle@gmail.com>"]
+readme = "README.md"
+
+[dependencies]
+tokio = {version = "1.17.0", features = ["full"]}
