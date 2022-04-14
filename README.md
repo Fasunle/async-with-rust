@@ -9,3 +9,7 @@ Rust core does not have async runtime but it provides future module which provid
 Tokio crate implements both single-threaded runtime and multi-threaded runtime. Single thread supports concurrency and even if the operating system has more capacity, it will not be useful since all the application in run on a single thread! so a lot of work will be available to the single thread to do; other available threads will not be able to help.
 
 The Multi-threaded runtime allows for more than one thread executing operations and are coordinated in a manner that their is a main thread which will spawn the other threads and when they are done, they could be yeilded to the main thread.
+
+NOTE: without the executor, async code does not do anything. The work of the executor is to constantly poll the async function for data.
+
+Using futures::executor::block function, this allows to block the executor on a future. This resumes the execution of other lines when the future yields.
