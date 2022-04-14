@@ -1,10 +1,21 @@
+use futures::executor::block_on;
 use tokio::join;
 
 fn main() {
     // async
-    let _books = async {
+    let books = async {
         get_books_async().await;
     };
+
+    // block the thread until kooks yields
+    block_on(books); // without this line, nothing will be printed to console
+
+    // this also work just fine
+    block_on(get_books_async());
+
+    // NOTE: block_on takes a future as argument and moves the future into its scope
+    // so, it is not available for further use
+
     // thread
     get_books_thread();
 }
