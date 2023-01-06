@@ -6,5 +6,5 @@ authors = ["Kehinde Fasunle <kfasunle@gmail.com>"]
 readme = "README.md"
 
 [dependencies]
-tokio = {version = "1.17.0", features = ["full"]}
+tokio = {version = "1.18.4", features = ["full"]}
 futures = "0.3"
